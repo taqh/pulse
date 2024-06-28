@@ -31,6 +31,39 @@ export const categories = [
   },
 ];
 
+export const authors = [
+  {
+    id: 1,
+    name: 'John Aoe',
+    image: '/user-1.png',
+  },
+  {
+    id: 1,
+    name: 'John Boe',
+    image: '/user-2.png',
+  },
+  {
+    id: 1,
+    name: 'John Coe',
+    image: '/user-3.png',
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    image: '/user-4.png',
+  },
+  {
+    id: 1,
+    name: 'John Eoe',
+    image: '/user-5.png',
+  },
+  {
+    id: 1,
+    name: 'John Foe',
+    image: '/user-2.png',
+  },
+]
+
 export const posts = [
   {
     id: 1,
@@ -42,7 +75,7 @@ export const posts = [
     author: {
       id: 1,
       name: 'John Aoe',
-      image: '',
+      image: '/user-1.png',
     },
     slug: 'top-10-business-ideas-for-2022',
   },
@@ -56,36 +89,120 @@ export const posts = [
     author: {
       id: 2,
       name: 'John Boe',
-      image: '',
+      image: '/user-2.png',
     },
     slug: 'the-best-way-to-learn-cybersecurity',
   },
   {
-    id: 2,
+    id: 3,
     title: 'FIFA World Cup 2022: What to Expect',
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
     image: '/placeholder.jpg',
     category: 'Sports',
     createdAt: '2021-10-10T00:00:00.000Z',
     author: {
-      id: 2,
+      id: 3,
       name: 'John Coe',
-      image: '',
+      image: '/user-3.png',
     },
     slug: 'fifa-world-cup-2022-what-to-expect',
   },
   {
-    id: 2,
+    id: 4,
     title: 'NASA’s Mars Rover Perseverance Sends Back First Images of the Red Planet',
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
     image: '/placeholder.jpg',
     category: 'Science',
     createdAt: '2021-10-10T00:00:00.000Z',
     author: {
-      id: 2,
+      id: 4,
       name: 'John Doe',
-      image: '',
+      image: '/user-4.png',
     },
     slug: 'nasas-mars-rover-perseverance-sends-back-first-images-of-the-red-planet',
+  },
+  {
+    id: 5,
+    title: 'Davido gets married amid scandal',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
+    image: '/placeholder.jpg',
+    category: 'Entertainment',
+    createdAt: '2021-10-10T00:00:00.000Z',
+    author: {
+      id: 5,
+      name: 'John Eoe',
+      image: '/user-2.png',
+    },
+    slug: 'davido-gets-married-amid-scandal',
+  },
+  {
+    id: 6,
+    title: 'WHO deploys five billion dollars worth of aid to sub-saharan africa',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
+    image: '/placeholder.jpg',
+    category: 'Health',
+    createdAt: '2021-10-10T00:00:00.000Z',
+    author: {
+      id: 6,
+      name: 'John Foe',
+      image: '/user-1.png',
+    },
+    slug: 'who-deploys-five-billion-dollars-worth-of-aid-to-sub-saharan-africa',
+  },
+  {
+    id: 7,
+    title: 'WHO deploys five billion dollars worth of aid to sub-saharan africa',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
+    image: '/placeholder.jpg',
+    category: 'Health',
+    createdAt: '2021-10-10T00:00:00.000Z',
+    author: {
+      id: 7,
+      name: 'John Foe',
+      image: '/user-1.png',
+    },
+    slug: 'who-deploys-five-billion-dollars-worth-of-aid-to-sub-saharan-africa',
+  },
+  {
+    id: 8,
+    title: 'WHO deploys five billion dollars worth of aid to sub-saharan africa',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
+    image: '/placeholder.jpg',
+    category: 'Health',
+    createdAt: '2021-10-10T00:00:00.000Z',
+    author: {
+      id: 8,
+      name: 'John Foe',
+      image: '/user-1.png',
+    },
+    slug: 'who-deploys-five-billion-dollars-worth-of-aid-to-sub-saharan-africa',
+  },
+  {
+    id: 9,
+    title: 'WHO deploys five billion dollars worth of aid to sub-saharan africa',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
+    image: '/placeholder.jpg',
+    category: 'Health',
+    createdAt: '2021-10-10T00:00:00.000Z',
+    author: {
+      id: 9,
+      name: 'John Foe',
+      image: '/user-1.png',
+    },
+    slug: 'who-deploys-five-billion-dollars-worth-of-aid-to-sub-saharan-africa',
+  },
+  {
+    id: 10,
+    title: 'WHO deploys five billion dollars worth of aid to sub-saharan africa',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur commodi vero dicta accusamus doloremque omnis neque? Veniam, error iusto. Totam, hic. Quidem, impedit voluptatem debitis facere, praesentium distinctio fugit nihil laudantium quis similique cum, nostrum at repellendus alias. Cum tenetur repellendus maiores nulla repudiandae itaque magnam eveniet nesciunt culpa sit!',
+    image: '/placeholder.jpg',
+    category: 'Health',
+    createdAt: '2021-10-10T00:00:00.000Z',
+    author: {
+      id: 10,
+      name: 'John Foe',
+      image: '/user-1.png',
+    },
+    slug: 'who-deploys-five-billion-dollars-worth-of-aid-to-sub-saharan-africa',
   },
 ];
