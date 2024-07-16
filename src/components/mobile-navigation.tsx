@@ -74,9 +74,9 @@ function MobileNavigation() {
           <ul className="flex h-full w-full flex-col gap-6 px-8 py-14 text-lg font-medium transition duration-300">
             <li className="relative">
               <Link
-                href="/search"
+                href="#"
                 className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground outline-2 transition duration-300 hover:bg-orange-100 focus-visible:outline-dashed ${
-                  pathname === "/search"
+                  pathname === "#"
                     ? "bg-orange-100 text-orange-500"
                     : "bg-transparent"
                 }`}
