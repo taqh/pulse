@@ -5,8 +5,7 @@ const baseApiUrl = "https://www.googleapis.com/youtube/v3";
 // const apikey = 'AIzaSyDb4-_fhnCK2oXqgYaxbFzGfFe5c9gdOaI';
 ("../../");
 export const getYouTubeThumbnails = async () => {
-  const ytThumbnails: string[] = [];
-  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCb4BvFRquPfEEmpwFYiMAog&key=${koloApiKey}&maxResults=4`;
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCb4BvFRquPfEEmpwFYiMAog&key=${koloApiKey}&maxResults=20`;
   const response = await axios.get(url);
   // console.log("STATUS", response.status);
   const responseItems = response.data.items;

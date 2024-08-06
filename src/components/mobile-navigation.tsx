@@ -3,7 +3,8 @@ import Link from "next/link";
 import MaxWidthContainer from "@/components/max-width-container";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AudioWaveform } from "lucide-react";
+import { AudioWaveform, Facebook, Instagram, Youtube } from "lucide-react";
+import Image from "next/image";
 
 function MobileNavigation() {
   const pathname = usePathname();
@@ -32,8 +33,15 @@ function MobileNavigation() {
           href="/"
           className="flex items-center gap-2 font-semibold lg:text-lg"
         >
-          <AudioWaveform className="text-orange-600" />
-          <p>Pulse</p>
+          <Image
+            src={"/og-logo2.png"}
+            alt="logo"
+            width={40}
+            height={40}
+            unoptimized
+            className="object-contain"
+          />
+          <p>Daza TV</p>
         </Link>
 
         {/* nav-controls */}
@@ -81,21 +89,30 @@ function MobileNavigation() {
                     : "bg-transparent"
                 }`}
               >
-                Search
+                Home
               </Link>
             </li>
-            <li className="relative">
-              <Link
-                href="/contact"
-                className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground outline-2 transition duration-300 hover:bg-orange-100 focus-visible:outline-dashed ${
-                  pathname === "/search"
-                    ? "bg-orange-100 text-orange-500"
-                    : "bg-transparent"
-                }`}
-              >
-                Contact
-              </Link>
-            </li>
+            <Link
+              target="_blank"
+              href="https://web.facebook.com/p/DAZA-TV-100063743503213/?paipv=0&eav=Afa-KB7UI3M66zNPz4n7WIPDNXQxl02xLWXoVCko1kjN8ZBD9WlzUtvEXZLxr6Nfp4w&_rdc=1&_rdr"
+              className="w-fit rounded-md border p-2 text-sm transition-all duration-300 hover:border-orange-400 hover:text-orange-400"
+            >
+              <Facebook target="_blank" />
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog"
+              className="w-fit rounded-md border p-2 text-sm transition-all duration-300 hover:border-orange-400 hover:text-orange-400"
+            >
+              <Youtube />
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/nuruddeendaza/"
+              className="w-fit rounded-md border p-2 text-sm transition-all duration-300 hover:border-orange-400 hover:text-orange-400"
+            >
+              <Instagram />
+            </Link>
           </ul>
         </nav>
 
