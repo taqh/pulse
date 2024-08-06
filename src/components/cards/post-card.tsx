@@ -1,55 +1,40 @@
-'use client';
-import Link from 'next/link';
-import Image from 'next/image';
-import shorten from '@/utils/shorten';
-import Badge from '../ui/badge';
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import shorten from "@/utils/shorten";
+import Badge from "../ui/badge";
+import { Post } from "@/types";
 
-interface PostCardProps {
-  title: string;
-  image: string;
-  category: string;
-  content: string
-  createdAt: string; // should be a date
-  author: User;
-  slug: string;
-}
-
-function PostCard({
-  title,
-  image,
-  category,
-  createdAt,
-  slug,
-}: PostCardProps) {
+function PostCard({ title, coverImg, category, dateCreated, id }: Post) {
   return (
-    <li className='w-fit rounded-lg'>
-      <div className='flex flex-col gap-2 h-full'>
-        <div className='group relative overflow-hidden rounded-md h-full'>
+    <li className="w-fit rounded-lg">
+      <div className="flex h-full flex-col gap-2">
+        <div className="group relative h-full overflow-hidden rounded-md">
           <Image
-            src={image}
+            src={coverImg}
             alt={title}
-            className='rounded-lg h-auto w-auto object-cover aspect-video group-hover:scale-105 transition-all duration-300'
+            className="aspect-video h-auto w-auto rounded-lg object-cover transition-all duration-300 group-hover:scale-105"
             width={300}
             height={250}
           />
         </div>
-        <div className='flex flex-col gap-4 justify-between max-w-[400px] px-2 py-4 h-full'>
-          <div className='flex flex-col gap-4'>
-            <div className='flex justify-between items-center text-sm font-medium'>
+        <div className="flex h-full max-w-[400px] flex-col justify-between gap-4 px-2 py-4">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center justify-between text-sm font-medium">
               <Badge category={category}>{category}</Badge>
               <p>
-                {new Date(createdAt).toLocaleDateString('en-US', {
-                  day: 'numeric',
-                  month: 'short',
-                  year: 'numeric',
+                {new Date(dateCreated ?? "").toLocaleDateString("en-US", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
                 })}
               </p>
             </div>
             <Link
-              href={`/post/${slug}`}
-              className='w-fit p-2 flex items-center font-medium gap-2 rounded-md hover:underline focus-visible:underline transition-all duration-300'
+              href={`/post/${id}`}
+              className="flex w-fit items-center gap-2 rounded-md p-2 font-medium transition-all duration-300 hover:underline focus-visible:underline"
             >
-              <p className='font-bold lg:text-lg'>{shorten(title, 90)}</p>
+              <p className="font-bold lg:text-lg">{shorten(title, 90)}</p>
             </Link>
           </div>
         </div>

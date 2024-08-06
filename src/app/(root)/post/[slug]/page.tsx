@@ -2,19 +2,23 @@
 import MaxWidthContainer from "@/components/max-width-container";
 import Related from "@/components/related";
 import Badge from "@/components/ui/badge";
-import { categories, posts } from "@/constants";
+import { categories } from "@/constants";
+import { IRootState } from "@/redux/store";
 import shorten from "@/utils/shorten";
-import { LinkIcon } from "lucide-react";
+import { LinkIcon, Share2Icon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import parse from "html-react-parser";
 
 function Page({ params }: { params: { slug: string } }) {
+  const { posts } = useSelector((state: IRootState) => state.posts);
   const { slug } = params;
 
   const getPost = () => {
-    const post = posts.find((post) => post.slug === slug);
+    const post = posts.find((post) => post.id === slug);
     return post;
   };
 
@@ -31,19 +35,20 @@ function Page({ params }: { params: { slug: string } }) {
       <div className="lg:col-span-2">
         <article className="mx-auto flex max-w-screen-md flex-col gap-5 lg:py-10">
           <Image
-            src={post.image}
+            src={post.coverImg}
             alt={post.title}
             width={768}
             height={400}
-            className="aspect-video h-auto w-auto rounded-lg"
+            className="aspect-video h-auto w-auto rounded-lg object-contain"
           />
           <section className="space-y-4">
-            <div className="flex flex-col w-full items-center justify-center gap-2 py-2">
-              <time
+            <div className="flex w-full flex-col items-center justify-center gap-2 py-2">
+              <span className="mb-6">{post.excerpt}</span>
+              {/* <time
                 className="text-sm tracking-tight text-zinc-600"
-                dateTime={new Date(post.createdAt).toISOString()}
+                dateTime={new Date().toISOString()}
               >
-                Published on {new Date(post.createdAt).toDateString()}
+                Published on {new Date().toDateString()}
               </time>
               <span>By</span>
               <div className="flex items-center gap-3">
@@ -57,36 +62,36 @@ function Page({ params }: { params: { slug: string } }) {
                 <p className="text-sm font-medium lg:text-base">
                   {post.author.name}
                 </p>
-              </div>
+              </div> */}
             </div>
-            <h1 className="text-center text-xl font-bold leading-tight md:text-2xl lg:text-4xl">
+            <h1 className="text-center text-base font-bold leading-tight md:text-xl lg:text-2xl">
               {post.title}
             </h1>
           </section>
 
           <section
-            className="prose prose-base xl:prose-lg mt-2 lg:mt-4"
+            className="prose prose-base mt-2 xl:prose-lg lg:mt-4"
             dangerouslySetInnerHTML={{
               __html: post.content ? post.content : "",
             }}
           />
         </article>
-        <section className="mx-auto max-w-screen-md space-y-6 px-2 md:px-6 py-6 lg:px-10  lg:py-10">
+        <section className="mx-auto max-w-screen-md space-y-6 px-2 py-6 md:px-6 lg:px-10 lg:py-10">
           <button
             type="button"
             title="share"
             onClick={() => copyLink()}
             className="flex items-center gap-2 rounded-md border border-input p-2 text-sm transition-all duration-300 hover:border-orange-400 hover:text-orange-400"
           >
-            <LinkIcon size={16} />
-            <span>Copy Link</span>
+            <Share2Icon size={16} />
+            <span>Share</span>
           </button>
 
-          <Related
+          {/* <Related
             currentPost={slug}
             authorId={post.author.id.toString()}
             authorName={post.author.name}
-          />
+          /> */}
         </section>
       </div>
       {/* sidebar */}
@@ -96,25 +101,30 @@ function Page({ params }: { params: { slug: string } }) {
             Featured posts
           </p>
           <ul className="flex flex-col gap-2">
-            {posts.slice(0, 2).map((post) => (
-              <li key={post.id} className="p-2">
-                <Link
-                  href={post.slug}
-                  className="group flex items-start gap-2 hover:text-orange-500 hover:underline"
-                >
-                  <div className="h-full w-full overflow-hidden rounded-md">
-                    <Image
-                      src="/placeholder.jpg"
-                      alt={post.title}
-                      width={80}
-                      height={80}
-                      className="aspect-square rounded-md transition duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="text-sm">{shorten(post.content, 60)}</p>
-                </Link>
-              </li>
-            ))}
+            {posts
+              .filter((item) => item.id !== slug)
+              .slice(0, 2)
+              .map((post) => (
+                <li key={post.id} className="p-2">
+                  <Link
+                    href={post.id}
+                    className="group flex items-start gap-2 hover:text-orange-500 hover:underline"
+                  >
+                    <div className="h-full w-full overflow-hidden rounded-md">
+                      <Image
+                        src={post.coverImg}
+                        alt={post.title}
+                        width={80}
+                        height={80}
+                        className="aspect-square rounded-md object-contain transition duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <p className="text-sm">
+                      {parse(shorten(post.content, 150))}
+                    </p>
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
       </aside>

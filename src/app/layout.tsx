@@ -6,13 +6,19 @@ import MobileNavigation from "@/components/mobile-navigation";
 import Footer from "@/components/footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReduxWrapper from "./ReduxWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export const metadata: Metadata = {
-  title: "Pulse",
-  description: "Freshest news from the world of tech",
-};
+  title: 'Daza TV',
+  description: 'Home of Arewa News and Movies',
+  icons: {
+    icon: "/og-logo2.png",
+  },
+}
+
 
 export default function RootLayout({
   children,
@@ -20,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <ReduxWrapper>
       <body className={inter.className}>
         <ToastContainer />
         <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
@@ -30,6 +36,6 @@ export default function RootLayout({
           <Footer />
         </div>
       </body>
-    </html>
+    </ReduxWrapper>
   );
 }

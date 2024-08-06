@@ -27,3 +27,10 @@
     color: hsl(var(--foreground));
   }
 }  
+
+@layer components {
+  .customBtn {
+    @apply bg-[#fb7b40] text-gray-100 rounded-md px-3 sm:px-5 py-3 font-bold justify-center text-center md:text-sm cursor-pointer text-xs hover:opacity-80 flex items-center space-x-2;
+  }
+}
+
