@@ -1,6 +1,5 @@
-import React, { useState, useEffect, SyntheticEvent, FC } from "react";
-import LoginImg from "../../assets/img/login_img.jpg";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import React, { useState, FC } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 
 type Props = {
@@ -73,7 +72,7 @@ const Login:FC<Props> = ({setUsername, setPassword, username, password, handleLo
                           className="w-full px-3 py-4 text-sm bg-white border rounded focus:border-orange text-customgray600 focus:outline-none border-primary"
                         />
                         {showPassword ? (
-                          <AiOutlineEyeInvisible
+                          <EyeOff
                             style={{
                               position: "absolute",
                               top: "40",
@@ -84,7 +83,7 @@ const Login:FC<Props> = ({setUsername, setPassword, username, password, handleLo
                             onClick={() => setShowPassword((show) => !show)}
                           />
                         ) : (
-                          <AiOutlineEye
+                          <Eye
                             style={{
                               position: "absolute",
                               top: "40",

@@ -1,6 +1,6 @@
 "use client";
 import "../editorStyle.css";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -95,7 +95,7 @@ const EditBlog = () => {
     getPost();
   }, [params]);
   return (
-    <>
+    <Suspense>
       <ToastContainer />
       {!isAuth ? (
         <Login
@@ -256,7 +256,7 @@ const EditBlog = () => {
           </div>
         </div>
       )}
-    </>
+    </Suspense>
   );
 };
 

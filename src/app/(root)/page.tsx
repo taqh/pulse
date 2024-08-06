@@ -31,7 +31,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense  } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -106,7 +106,7 @@ export default function Home() {
     setMostPopularPosts(shufflePopular);
   }, [_posts]);
   return (
-    <div>
+    <Suspense>
       <section className="py-6">
         <MaxWidthContainer>
           <div className="news-hero relative flex flex-col justify-between overflow-hidden rounded-md bg-cover bg-fixed bg-no-repeat after:backdrop-blur-md">
@@ -418,6 +418,6 @@ export default function Home() {
           </div>
         </MaxWidthContainer>
       </section>
-    </div>
+    </Suspense>
   );
 }
