@@ -10,15 +10,27 @@ import ReduxWrapper from "./ReduxWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 export const metadata: Metadata = {
-  title: 'Daza TV',
-  description: 'Home of Arewa News and Movies',
+  title: "Daza TV",
+  description: "Home of Arewa News and Movies",
+  openGraph: {
+    type: "website",
+    url: "https://dazatv.vercel.app",
+    title: "Daza TV",
+    description: "Home of Arewa News and Movies",
+    images: [
+      {
+        url: "https://dazatv.vercel.app/logo.jpg",
+        width: 1200,
+        height: 600,
+        alt: "Daza TV Logo",
+      },
+    ],
+  },
   icons: {
     icon: "/og-logo2.png",
   },
-}
-
+};
 
 export default function RootLayout({
   children,

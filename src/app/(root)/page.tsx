@@ -109,7 +109,7 @@ export default function Home() {
     <Suspense>
       <section className="py-6">
         <MaxWidthContainer>
-          <div className="news-hero relative flex flex-col justify-between overflow-hidden rounded-md bg-cover bg-fixed bg-no-repeat after:backdrop-blur-md">
+          <div className="news-hero relative flex flex-col justify-between overflow-hidden rounded-md bg-cover">
             <Image
               src={
                 _posts.length > 0 && _posts[_posts.length - 1].coverImg
@@ -129,7 +129,7 @@ export default function Home() {
                 fill="rgb(234 88 12)"
               />
             </div>
-            <article className="relative z-10 pt-36 lg:pt-52 xl:pt-72">
+            <article className="relative z-10 lg:pt-52 xl:pt-72 max-sm:mt-16">
               <div className="flex max-w-[609px] flex-col justify-end max-lg:p-8 lg:ml-[50px] lg:pb-8">
                 <h1 className="mb-3 text-xl font-bold text-white md:text-2xl lg:text-4xl">
                   {loading
@@ -168,9 +168,9 @@ export default function Home() {
         <MaxWidthContainer className="relative mt-20">
           <div className="grid gap-6 lg:grid-cols-3 lg:gap-14">
             <div className="lg:col-span-2">
-              <div className="relative z-10 mb-6 flex h-fit w-fit items-center gap-2 rounded-md border border-orange-200 bg-white px-8 py-3 shadow-sm lg:mb-10">
+              <div className="relative z-10 mb-6 flex h-fit w-fit items-center gap-2 rounded-md border bg-white px-8 py-3 shadow-sm lg:mb-10">
                 <p className="flex items-center gap-3">
-                  <ListFilter className="h-5 w-5 text-orange-600" />
+                  <ListFilter className="size-4" />
                   <span className="font-medium capitalize text-gray-800 lg:text-lg">
                     {`${cat ? cat : "latest"} posts`}
                   </span>
@@ -219,18 +219,18 @@ export default function Home() {
               {/* categories list */}
               <div className="rounded-md border bg-white p-6 shadow-sm">
                 <p className="mb-4 flex items-center gap-2 text-center font-semibold lg:text-lg">
-                  <SlidersHorizontal size={16} className="text-orange-600" />
+                  <SlidersHorizontal size={16} />
                   Categories
                 </p>
                 <ul className="flex flex-col gap-2">
                   {categories.map((category) => (
                     <li
                       key={category.id}
-                      className={`relative border after:absolute after:left-0 after:top-0 after:h-full after:w-0.5 after:bg-fuchsia-400`}
+                      className={`relative border after:absolute after:left-0 after:top-0 after:h-full after:w-0.5 after:bg-gray-400`}
                     >
                       <button
                         onClick={() => selectCategory(category.slug)}
-                        className={`border-accent relative block w-full rounded-md px-6 py-2 text-left text-black transition-colors duration-500 after:absolute after:left-0 after:top-0 after:h-full after:w-full after:origin-left after:scale-x-0 after:bg-fuchsia-400 after:transition after:duration-500 hover:after:scale-x-100`}
+                        className={`border-accent relative block w-full rounded-md px-6 py-2 text-left text-black transition-colors duration-500 after:absolute after:left-0 after:top-0 after:h-full after:w-full after:origin-left after:scale-x-0 after:bg-gray-400 after:transition after:duration-500 hover:after:scale-x-100`}
                       >
                         <span className="relative z-10 text-sm capitalize tracking-widest">
                           {category.name}
@@ -244,7 +244,7 @@ export default function Home() {
               {/* featured post list */}
               <div className="rounded-md border bg-white p-6 shadow-sm">
                 <p className="mb-4 flex items-center gap-2 text-center font-semibold lg:text-lg">
-                  <Sparkles size={16} className="text-orange-600" />
+                  <Sparkles size={16} />
                   Featured posts
                 </p>
                 <ul className="flex flex-col gap-2">
@@ -275,7 +275,7 @@ export default function Home() {
               {/* advertisement */}
               <div className="sticky top-[100px] rounded-md border bg-white p-6 shadow-sm">
                 <p className="mb-4 flex items-center gap-2 text-center font-semibold lg:text-lg">
-                  <Radio size={16} className="text-orange-600" />
+                  <Radio size={16} />
                   Advertisement
                 </p>
                 <div className="flex items-center justify-center p-4">

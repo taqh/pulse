@@ -76,7 +76,7 @@ function Page({ params }: { params: { slug: string } }) {
             }}
           />
         </article>
-        <section className="mx-auto max-w-screen-md space-y-6 px-2 py-6 md:px-6 lg:px-10 lg:py-10">
+        <section className="mx-auto max-w-screen-md space-y-6 py-6 lg:py-10">
           <button
             type="button"
             title="share"
@@ -110,17 +110,17 @@ function Page({ params }: { params: { slug: string } }) {
                     href={post.id}
                     className="group flex items-start gap-2 hover:text-orange-500 hover:underline"
                   >
-                    <div className="h-full w-full overflow-hidden rounded-md">
+                    <div className="shrink-0 overflow-hidden rounded-md">
                       <Image
                         src={post.coverImg}
                         alt={post.title}
                         width={80}
                         height={80}
-                        className="aspect-square rounded-md object-contain transition duration-300 group-hover:scale-105"
+                        className="aspect-auto rounded-md object-contain transition duration-300 group-hover:scale-105"
                       />
                     </div>
                     <p className="text-sm">
-                      {parse(shorten(post.content, 150))}
+                      {parse(shorten(post.excerpt, 150))}
                     </p>
                   </Link>
                 </li>

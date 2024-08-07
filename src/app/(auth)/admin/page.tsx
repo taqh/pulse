@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "@/redux/store";
 import { loadPosts, unloadPosts } from "@/redux/posts/postSlice";
 import { Post } from "@/types";
+import MaxWidthContainer from "@/components/max-width-container";
 const Admin = () => {
   const { posts } = useSelector((state: IRootState) => state.posts);
   const notify = (arg: any) => toast(arg);
@@ -77,7 +78,7 @@ const Admin = () => {
     }
   }, [posts]);
   return (
-    <div className="relative flex flex-col p-5">
+    <MaxWidthContainer className="relative flex flex-col p-5">
       <ToastContainer />
 
       {loading ? (
@@ -116,6 +117,14 @@ const Admin = () => {
             <h1 className="text-DarkGray-Blue mb-4 text-center text-2xl font-extrabold">
               Your Blog Posts
             </h1>
+            {isLogged && (
+              <button
+                className="customBtn self-end ml-auto"
+                onClick={() => Router.push("/createBlog")}
+              >
+                NEW POST
+              </button>
+            )}
           </div>
           <div className="my-10 flex flex-wrap gap-10">
             {_posts.length > 0 ? (
@@ -179,26 +188,12 @@ const Admin = () => {
             ) : (
               <div className="flex w-[80vw] flex-col">
                 <h1 className="text-gray-600">Oops no posts yet</h1>
-                {isLogged && (
-                  <button
-                    className="customBtn self-end"
-                    onClick={() => Router.push("/createBlog")}
-                  >
-                    NEW POST
-                  </button>
-                )}
               </div>
             )}
           </div>
         </>
       )}
-      <button
-        className="customBtn absolute bottom-0 right-5 mt-5 self-end"
-        onClick={() => Router.push("/createBlog")}
-      >
-        NEW POST
-      </button>
-    </div>
+    </MaxWidthContainer>
   );
 };
 
