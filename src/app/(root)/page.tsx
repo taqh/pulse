@@ -31,7 +31,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, Suspense  } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -123,15 +123,15 @@ export default function Home() {
               className="absolute w-full object-contain"
             />
             <div className="relative z-10 ml-8 mt-6 flex h-fit w-fit items-center gap-2 rounded-md bg-white px-2 py-1.5 lg:ml-10">
-              <p className="\text-sm font-medium text-gray-800">Trending</p>
+              <p className="text-sm font-medium text-gray-800">Trending</p>
               <Flame
                 className="h-4 w-4 text-orange-600"
                 fill="rgb(234 88 12)"
               />
             </div>
-            <article className="relative z-10 lg:pt-52 xl:pt-72 max-sm:mt-16">
-              <div className="flex max-w-[609px] flex-col justify-end max-lg:p-8 lg:ml-[50px] lg:pb-8">
-                <h1 className="mb-3 text-xl font-bold text-white md:text-2xl lg:text-4xl">
+            <article className="relative z-10 max-sm:mt-16 lg:pt-52 xl:pt-72">
+              <div className="flex max-w-[609px] flex-col justify-end max-lg:p-[.5rem] lg:ml-[50px] lg:pb-8">
+                <h1 className="md:mb-3 mb-1 w-fit rounded-md bg-gray-50 p-1 text-base font-bold text-gray-700 md:bg-transparent md:p-0 md:text-2xl md:text-white lg:text-4xl">
                   {loading
                     ? "Loading..."
                     : _posts.length > 0 && _posts[_posts.length - 1].title
@@ -151,7 +151,7 @@ export default function Home() {
                 {!loading && (
                   <Link
                     href={`/post/${_posts[_posts.length - 1]?.id}`}
-                    className="focus-visible:outline-main flex w-fit min-w-[8rem] items-center justify-center gap-2 rounded-md bg-white p-2 font-semibold text-gray-900 outline-1 outline-offset-1 transition-all duration-300 hover:gap-4 focus-visible:gap-4 focus-visible:outline-dashed"
+                    className="focus-visible:outline-main flex w-fit min-w-[8rem] items-center justify-center gap-2 rounded-md bg-orange-300 p-2 font-semibold text-gray-900 outline-1 outline-offset-1 transition-all duration-300 hover:gap-4 focus-visible:gap-4 focus-visible:outline-dashed md:bg-white"
                   >
                     Read
                     <ArrowRight size={16} />
@@ -165,7 +165,7 @@ export default function Home() {
 
       {/* posts section */}
       <section className="lg:py-10">
-        <MaxWidthContainer className="relative mt-20">
+        <MaxWidthContainer className="relative mt-0 md:mt-20">
           <div className="grid gap-6 lg:grid-cols-3 lg:gap-14">
             <div className="lg:col-span-2">
               <div className="relative z-10 mb-6 flex h-fit w-fit items-center gap-2 rounded-md border bg-white px-8 py-3 shadow-sm lg:mb-10">
@@ -380,7 +380,7 @@ export default function Home() {
                 <div className="flex items-center justify-center p-4">
                   {youtubePosts && youtubePosts.length > 0 && (
                     <iframe
-                      src={`http://www.youtube.com/embed/${youtubePosts[getRandomIndex(youtubePosts.length)].id.videoId}?enablejsapi=1&origin=http://example.com`}
+                      src={`https://www.youtube.com/embed/${youtubePosts[getRandomIndex(youtubePosts.length)].id.videoId}?enablejsapi=1&origin=http://example.com`}
                       // src={`https://www.youtube.com/watch?v=${youtubePosts[0].id.videoId}`}k
                     ></iframe>
                   )}
